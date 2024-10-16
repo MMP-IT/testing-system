@@ -115,7 +115,7 @@ Membuat Purchase Requisition
 
     
     # supporting document
-    Choose File    //input[@name='pr_attachment[]']    
+    Choose File    //input[@name='pr_attachment[]']        
 
 
     
