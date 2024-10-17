@@ -65,33 +65,33 @@ Approval Purchase Order
     Click Element    ${BACK_BUTTON}
     Close Browser
 
-# Approval Reject Purchase Requisition
-#     [Documentation]    This test case simulates the rejection approval process of a purchase order by a Superior user. The test logs into the application, navigates to the purchase requisition section, and performs the approval action.
+Approval Reject Purchase Requisition
+    [Documentation]    This test case simulates the rejection approval process of a purchase order by a Superior user. The test logs into the application, navigates to the purchase requisition section, and performs the approval action.
     
-#     Set Selenium Speed    value=0.5
-#     Open Browser      ${LOGIN_URL}         ${BROWSER}
-#     Input Text        ${EMAIL_FIELD}       ${EMAIL}
-#     Input Password    ${PASSWORD_FIELD}    ${PASSWORD}
-#     Click Button      ${LOGIN_BUTTON}
-#     Page Should Contain    MMP Portal
+    Set Selenium Speed    value=0.5
+    Open Browser      ${LOGIN_URL}         ${BROWSER}
+    Input Text        ${EMAIL_FIELD}       ${EMAIL}
+    Input Password    ${PASSWORD_FIELD}    ${PASSWORD}
+    Click Button      ${LOGIN_BUTTON}
+    Page Should Contain    MMP Portal
 
-#     Go To    ${PO_URL}
-#     Page Should Contain    Purchasement List
-#     Click Element   ${PO_APPROVAL_TAB}
+    Go To    ${PO_URL}
+    Page Should Contain    Purchasement List
+    Click Element   ${PO_APPROVAL_TAB}
 
-#     Wait Until Page Contains Element   ${REVIEW_BUTTON}
-#     Click Element   ${REVIEW_BUTTON}
+    Wait Until Page Contains Element   ${REVIEW_BUTTON}
+    Click Element   ${REVIEW_BUTTON}
 
-#     Page Should Contain    PURCHASE ORDER
-#     Click Button    ${REJECT_BUTTON}
+    Page Should Contain    PURCHASE ORDER
+    Click Button    ${REJECT_BUTTON}
 
-#     Wait Until Page Contains    Reject Reason
-#     Click Element    ${REJECT_REASON}    
-#     Click Element    ${REASON}
-#     Click Button     ${REJECT_VAL}
-#     Click Button     ${VALIDASI}
+    Wait Until Page Contains    Reject Reason
+    Click Element    ${REJECT_REASON}    
+    Click Element    ${REASON}
+    Click Button     ${REJECT_VAL}
+    Click Button     ${VALIDASI}
 
-#     Wait Until Page Contains    PURCHASE ORDER    timeout=30 seconds
-#     Click Button    ${BACK_BUTTON}
-#     Location Should Be    ${PO_URL}
-#     Close Browser
+    Wait Until Page Contains    PURCHASE ORDER    timeout=30 seconds
+    Click Button    ${BACK_BUTTON}
+    Location Should Be    ${PO_URL}
+    Close Browser
