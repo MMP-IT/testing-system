@@ -38,7 +38,7 @@ ${BROWSER}      Chrome
 Approval Purchase Requisition
     [Documentation]    This test case simulates the approval process of a purchase requisition by a Superior user. The test logs into the application, navigates to the purchase requisition section, and performs the approval action.
     
-    Set Selenium Speed    value=0.5
+    Set Selenium Speed    value=0.3
     Open Browser      ${LOGIN_URL}         ${BROWSER}
     Input Text        ${EMAIL_FIELD}       ${EMAIL}
     Input Password    ${PASSWORD_FIELD}    ${PASSWORD}
@@ -53,6 +53,8 @@ Approval Purchase Requisition
     
     Wait Until Element Is Enabled    ${APPROVE_BUTTON}    timeout=30 seconds
     Page Should Contain    Purchase Requisition Approval
+
+    Wait Until Page Contains Element    ${ITEM_APPROVED}
     Input Text    ${ITEM_APPROVED}    ${ITEM}
     Click Button    ${APPROVE_BUTTON}
 
