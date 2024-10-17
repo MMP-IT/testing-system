@@ -34,7 +34,6 @@ ${BROWSER}      Chrome
 
 *** Test Cases ***
 
-<<<<<<< HEAD
 Approve Bidding by Dep. Head Purchasing
     [Documentation]    This test case simulates the approval process of a bidding by Ricca Sumarni. The test logs into the application, navigates to the bidding section, and performs the approval action.
     Set Selenium Speed    value=0.5
@@ -43,22 +42,10 @@ Approve Bidding by Dep. Head Purchasing
     Input Password    //input[@id='password']    ${PASSWORD}
     Click Button      ${LOGIN_BUTTON}
     Page Should Contain    MMP Portal
-=======
-# Approve Bidding by Dep. Head Purchasing
-#     [Documentation]    This test case simulates the approval process of a bidding by Ricca Sumarni. The test logs into the application, navigates to the bidding section, and performs the approval action.
-    
-#     Set Selenium Speed    value=0.5
-#     Open Browser      ${LOGIN_URL}         ${BROWSER}
-#     Input Text        ${EMAIL_FIELD}       ${EMAIL_1}
-#     Input Password    ${PASSWORD_FIELD}    ${PASSWORD}
-#     Click Button      ${LOGIN_BUTTON}
-#     Page Should Contain    MMP Portal
->>>>>>> dea84f4c2c0561e0b4600c232eec48f5f80b5dee
 
 #     Go To    ${PO_URL}
 #     Page Should Contain    Purchasement List
     
-<<<<<<< HEAD
     # Page Bidding List
     Click Element   //a[@href='#tab3']
     
@@ -72,22 +59,6 @@ Approve Bidding by Dep. Head Purchasing
 
     Click Button   //button[@class='swal2-confirm btn btn-success']
     Close Browser
-=======
-#     # Page Bidding List
-#     Click Element   ${BIDDING_LIST_TAB}
-#     Wait Until Element Is Visible   ${REVIEW_BUTTON}
-    
-#     # Approve Bidding List
-#     Click Element    ${REVIEW_BUTTON}
-#     Wait Until Element Is Visible    ${APPROVE_BUTTON}
-#     Click Element    ${APPROVE_BUTTON}
-#     Input Text       ${REMARKS}    ${REMARKS_APPROVE}
-#     Click Element    ${APPROVE_VAL}
-#     Click Element    ${VAL_BUTTON}
-
-#     Wait Until Page Contains    Approved    timeout=30s
-#     Close Browser
->>>>>>> dea84f4c2c0561e0b4600c232eec48f5f80b5dee
 
 Approval Bidding by Div. Head Purchasing
     [Documentation]  This test case simulates the approval process of a bidding by Totok Suprapto. The test logs into the application, navigates to the bidding section, and performs the approval action.

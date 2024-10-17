@@ -139,11 +139,12 @@ Save Purchase Requisition Entry
 
 Posting Purchase Requisition Entry With Save
     # ! posting pr
-    Wait Until Element Is Visible    //div[@class='panel-body']
+    Wait Until Element Is Visible    //a[@class='edit btn btn-danger btn-sm']
     Click Element    //a[@class='edit btn btn-danger btn-sm']
-    Click Element    //button[@class='btn btn-primary btn-sm']
+    Scroll Element Into View    //button[@class='btn btn-primary btn-sm']
+    Click Button    //button[@class='btn btn-primary btn-sm' and @type='submit']
     
-    Wait Until Element Is Visible    //div[@class='swal2-title']
+
     Click Button    //button[@class='swal2-confirm swal2-styled']
 
 
@@ -155,7 +156,7 @@ Posting Purchase Requisition Entry With Save
 Approval Purchase Requisition
     [Documentation]    This test case simulates the approval process of a purchase requisition by a Superior user. The test logs into the application, navigates to the purchase requisition section, and performs the approval action.
     
-    Set Selenium Speed    value=0.3
+    Set Selenium Speed    value=0.5
     Open Browser      ${LOGIN_URL}         ${BROWSER}
     Set Window Size    1920    1080
     Input Text        //input[@id='email']        ${approval_pr_user}
@@ -176,8 +177,9 @@ Approval Purchase Requisition
 
     # Input Item Approve
     Wait Until Page Contains Element    //input[@type='number' and @name='approved_qty[]']
-    Input Text    //input[@type='number' and @name='approved_qty[]']    ${item_approve}
-    Click Button    /button[@id='isapproval']
+    Input Text    //input[@type='number' and @name='approved_qty[]']    ${item_approve}  
+    Wait Until Element Is Visible    //button[@id='isapproval' and @type='submit']
+    Click Button    //button[@id='isapproval' and @type='submit']     
 
     Wait Until Page Contains    Approval Remarks
     Input Text    //textarea[@id='approval-remarks']    ${REMARKS_INPUT}
