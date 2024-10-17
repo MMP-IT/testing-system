@@ -132,35 +132,31 @@ Membuat Purchase Requisition
     Input Text    //textarea[@name='pr_remark[]']    ${remark}
     Click Element    //input[@name='pr_order_qty[]']
 
-# Save Purchase Requisition Entry
-#     # ! save pr
-#     Click Button    //button[@id='btn-submit-requisition' and @type='submit']
-#     Location Should Be    http://devportal.mmproperty.com/purchaserequisition
+Save Purchase Requisition Entry
+    # ! save pr
+    Click Button    //button[@id='btn-submit-requisition' and @type='submit']
+    Location Should Be    http://devportal.mmproperty.com/purchaserequisition
 
-# Posting Purchase Requisition Entry With Save
-    # # ! posting pr
-    # Wait Until Element Is Visible    //div[@class='panel-body']
-    # # Scroll Element Into View         //a[contains(@class='edit' ) and contains(@href, 'purchaserequisition')']
-    # Scroll Element Into View         //a[contains(@class, 'edit btn btn-danger btn-sm' ) and contains(@href, 'purchaserequisition')'][1]
-    # Scroll Element Into View         //a[@class='edit btn btn-danger btn-sm']
-    # Click Element    //a[contains(@class, 'edit btn btn-danger btn-sm') and contains(@href, '/purchaserequisition/process')]
+Posting Purchase Requisition Entry With Save
+    # ! posting pr
+    Wait Until Element Is Visible    //a[@class='edit btn btn-danger btn-sm']
+    Click Element    //a[@class='edit btn btn-danger btn-sm']
+    Scroll Element Into View    //button[@class='btn btn-primary btn-sm']
+    Click Button    //button[@class='btn btn-primary btn-sm' and @type='submit']
+    
+
+    Click Button    //button[@class='swal2-confirm swal2-styled']
 
 
-
-    # Wait Until Element Is Visible    //div[@class='panel panel-primary']
-    # Click Button    //button[@class='btn btn-primary btn-sm' and @type='submit']
-    # Wait Until Element Is Visible    //div[@class='swal2-title']
-    # Click Button    //button[@class='swal2-confirm swal2-styled']
-
-Direct Posting Purchase Requisition Entry 
-    Click Button    //button[@id='btn-submit-requisition']
+# Direct Posting Purchase Requisition Entry 
+#     Click Button    //button[@id='btn-submit-requisition' and @class='btn btn-primary']
 # ====== end create purchase requisition ======
     Close Browser
 
 Approval Purchase Requisition
     [Documentation]    This test case simulates the approval process of a purchase requisition by a Superior user. The test logs into the application, navigates to the purchase requisition section, and performs the approval action.
     
-    Set Selenium Speed    value=0.3
+    Set Selenium Speed    value=0.5
     Open Browser      ${LOGIN_URL}         ${BROWSER}
     Set Window Size    1920    1080
     Input Text        //input[@id='email']        ${approval_pr_user}
@@ -181,8 +177,9 @@ Approval Purchase Requisition
 
     # Input Item Approve
     Wait Until Page Contains Element    //input[@type='number' and @name='approved_qty[]']
-    Input Text    //input[@type='number' and @name='approved_qty[]']    ${item_approve}
-    Click Button    /button[@id='isapproval']
+    Input Text    //input[@type='number' and @name='approved_qty[]']    ${item_approve}  
+    Wait Until Element Is Visible    //button[@id='isapproval' and @type='submit']
+    Click Button    //button[@id='isapproval' and @type='submit']     
 
     Wait Until Page Contains    Approval Remarks
     Input Text    //textarea[@id='approval-remarks']    ${REMARKS_INPUT}
