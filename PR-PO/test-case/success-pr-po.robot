@@ -6,11 +6,14 @@ Library    SeleniumLibrary
 
 # ! URL
 ${login_url}    http://devportal.mmproperty.com/login
+${BROWSER}      chrome
+
 ${purchase_requisition_url}    http://devportal.mmproperty.com/purchaserequisition
 
 # ! requester user
 ${pr_requester_email}    daniel.fernando
 ${pr_request_pass}    superFor
+${approval_pr_user}    arief.wibowo
 
 # ! Purchase Requisition Entry Form Value
 ${department}    IT
@@ -20,6 +23,10 @@ ${desc}    test input description
 ${item}    laptop hp probook
 ${order_qty}    2
 ${remark}    ini test remark
+
+# Entry Approval
+${item_approve}    1
+${REMARKS_INPUT}       ok
 
 # ! config 
 ${timeout}    30s
@@ -148,4 +155,40 @@ Membuat Purchase Requisition
 Direct Posting Purchase Requisition Entry 
     Click Button    //button[@id='btn-submit-requisition']
 # ====== end create purchase requisition ======
+    Close Browser
+
+Approval Purchase Requisition
+    [Documentation]    This test case simulates the approval process of a purchase requisition by a Superior user. The test logs into the application, navigates to the purchase requisition section, and performs the approval action.
+    
+    Set Selenium Speed    value=0.3
+    Open Browser      ${LOGIN_URL}         ${BROWSER}
+    Set Window Size    1920    1080
+    Input Text        //input[@id='email']        ${approval_pr_user}
+    Input Password    //input[@id='password']     ${pr_request_pass}
+    Click Button      //button[@class='btn btn-primary btn-submit' and @type='submit']
+    Page Should Contain    MMP Portal
+
+    Go To    http://devportal.mmproperty.com/purchaserequisition
+    Page Should Contain    Purchasement List
+
+    # Click Review Button on Record
+    Wait Until Page Contains Element   //a[@id='btn-purchase-approval']   timeout=30 seconds
+    Click Element   //a[@id='btn-purchase-approval']
+    
+    # Approve Purchase Requisition
+    Wait Until Element Is Visible    //button[@id='isapproval']    timeout=30 seconds
+    Page Should Contain    Purchase Requisition Approval
+
+    # Input Item Approve
+    Wait Until Page Contains Element    //input[@type='number' and @name='approved_qty[]']
+    Input Text    //input[@type='number' and @name='approved_qty[]']    ${item_approve}
+    Click Button    /button[@id='isapproval']
+
+    Wait Until Page Contains    Approval Remarks
+    Input Text    //textarea[@id='approval-remarks']    ${REMARKS_INPUT}
+    Click Button   //button[@id='btn-ok']
+    Click Button   //button[@class='swal2-confirm swal2-styled']
+
+    Wait Until Page Contains    Success   
+    Location Should Be    http://devportal.mmproperty.com/purchaserequisition
     Close Browser

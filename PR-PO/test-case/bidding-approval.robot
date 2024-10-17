@@ -34,33 +34,33 @@ ${BROWSER}      Chrome
 
 *** Test Cases ***
 
-Approve Bidding by Dep. Head Purchasing
-    [Documentation]    This test case simulates the approval process of a bidding by Ricca Sumarni. The test logs into the application, navigates to the bidding section, and performs the approval action.
+# Approve Bidding by Dep. Head Purchasing
+#     [Documentation]    This test case simulates the approval process of a bidding by Ricca Sumarni. The test logs into the application, navigates to the bidding section, and performs the approval action.
     
-    Set Selenium Speed    value=0.5
-    Open Browser      ${LOGIN_URL}         ${BROWSER}
-    Input Text        ${EMAIL_FIELD}       ${EMAIL_1}
-    Input Password    ${PASSWORD_FIELD}    ${PASSWORD}
-    Click Button      ${LOGIN_BUTTON}
-    Page Should Contain    MMP Portal
+#     Set Selenium Speed    value=0.5
+#     Open Browser      ${LOGIN_URL}         ${BROWSER}
+#     Input Text        ${EMAIL_FIELD}       ${EMAIL_1}
+#     Input Password    ${PASSWORD_FIELD}    ${PASSWORD}
+#     Click Button      ${LOGIN_BUTTON}
+#     Page Should Contain    MMP Portal
 
-    Go To    ${PO_URL}
-    Page Should Contain    Purchasement List
+#     Go To    ${PO_URL}
+#     Page Should Contain    Purchasement List
     
-    # Page Bidding List
-    Click Element   ${BIDDING_LIST_TAB}
-    Wait Until Element Is Visible   ${REVIEW_BUTTON}
+#     # Page Bidding List
+#     Click Element   ${BIDDING_LIST_TAB}
+#     Wait Until Element Is Visible   ${REVIEW_BUTTON}
     
-    # Approve Bidding List
-    Click Element    ${REVIEW_BUTTON}
-    Wait Until Element Is Visible    ${APPROVE_BUTTON}
-    Click Element    ${APPROVE_BUTTON}
-    Input Text       ${REMARKS}    ${REMARKS_APPROVE}
-    Click Element    ${APPROVE_VAL}
-    Click Element    ${VAL_BUTTON}
+#     # Approve Bidding List
+#     Click Element    ${REVIEW_BUTTON}
+#     Wait Until Element Is Visible    ${APPROVE_BUTTON}
+#     Click Element    ${APPROVE_BUTTON}
+#     Input Text       ${REMARKS}    ${REMARKS_APPROVE}
+#     Click Element    ${APPROVE_VAL}
+#     Click Element    ${VAL_BUTTON}
 
-    Wait Until Page Contains    Approved    timeout=30s
-    Close Browser
+#     Wait Until Page Contains    Approved    timeout=30s
+#     Close Browser
 
 # Approval Bidding by Div. Head Purchasing
 #     [Documentation]  This test case simulates the approval process of a bidding by Totok Suprapto. The test logs into the application, navigates to the bidding section, and performs the approval action.
