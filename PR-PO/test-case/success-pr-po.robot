@@ -125,27 +125,22 @@ Membuat Purchase Requisition
     Input Text    //textarea[@name='pr_remark[]']    ${remark}
     Click Element    //input[@name='pr_order_qty[]']
 
-# Save Purchase Requisition Entry
-#     # ! save pr
-#     Click Button    //button[@id='btn-submit-requisition' and @type='submit']
-#     Location Should Be    http://devportal.mmproperty.com/purchaserequisition
+Save Purchase Requisition Entry
+    # ! save pr
+    Click Button    //button[@id='btn-submit-requisition' and @type='submit']
+    Location Should Be    http://devportal.mmproperty.com/purchaserequisition
 
-# Posting Purchase Requisition Entry With Save
-    # # ! posting pr
-    # Wait Until Element Is Visible    //div[@class='panel-body']
-    # # Scroll Element Into View         //a[contains(@class='edit' ) and contains(@href, 'purchaserequisition')']
-    # Scroll Element Into View         //a[contains(@class, 'edit btn btn-danger btn-sm' ) and contains(@href, 'purchaserequisition')'][1]
-    # Scroll Element Into View         //a[@class='edit btn btn-danger btn-sm']
-    # Click Element    //a[contains(@class, 'edit btn btn-danger btn-sm') and contains(@href, '/purchaserequisition/process')]
+Posting Purchase Requisition Entry With Save
+    # ! posting pr
+    Wait Until Element Is Visible    //div[@class='panel-body']
+    Click Element    //a[@class='edit btn btn-danger btn-sm']
+    Click Element    //button[@class='btn btn-primary btn-sm']
+    
+    Wait Until Element Is Visible    //div[@class='swal2-title']
+    Click Button    //button[@class='swal2-confirm swal2-styled']
 
 
-
-    # Wait Until Element Is Visible    //div[@class='panel panel-primary']
-    # Click Button    //button[@class='btn btn-primary btn-sm' and @type='submit']
-    # Wait Until Element Is Visible    //div[@class='swal2-title']
-    # Click Button    //button[@class='swal2-confirm swal2-styled']
-
-Direct Posting Purchase Requisition Entry 
-    Click Button    //button[@id='btn-submit-requisition']
+# Direct Posting Purchase Requisition Entry 
+#     Click Button    //button[@id='btn-submit-requisition' and @class='btn btn-primary']
 # ====== end create purchase requisition ======
     Close Browser
