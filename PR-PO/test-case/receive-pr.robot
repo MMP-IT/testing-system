@@ -12,7 +12,8 @@ ${PASSWORD}     superFor
 
 ${EMAIL_FIELD}         //input[@id='email']                        
 ${PASSWORD_FIELD}      //input[@id='password']                     
-${LOGIN_BUTTON}        //button[@class='btn btn-primary btn-submit' and @type='submit']  
+${LOGIN_BUTTON}        //button[@class='btn btn-primary btn-submit' and @type='submit'] 
+
 
 ${BROWSER}      Chrome
 
