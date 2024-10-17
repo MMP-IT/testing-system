@@ -149,7 +149,3 @@ Direct Posting Purchase Requisition Entry
     Click Button    //button[@id='btn-submit-requisition']
 # ====== end create purchase requisition ======
     Close Browser
-
-
-
-
