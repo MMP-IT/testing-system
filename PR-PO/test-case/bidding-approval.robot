@@ -18,15 +18,17 @@ ${LOGIN_BUTTON}        //button[@class='btn btn-primary btn-submit' and @type='s
 
 ${BIDDING_LIST_TAB}    //a[@href='#tab3']
 
-${REVIEW_BUTTON}       //a[@class='edit btn btn-info btn-sm']
-${APPROVE_BUTTON}      //a[@class='bid-approval']
-${REJECT_BUTTON}       //a[@class='bid-reject']
-${APPROVE_VAL}         //a[@id='btn-ok']
-${REJECT_VAL}          //a[@id='btn-approval']
-${VAL_BUTTON}          //a[@class='swal2-confirm swal2-styled']
+${REVIEW_BUTTON}       (//a[@class='edit btn btn-info btn-sm'])[2]
+${APPROVE_BUTTON}      //button[@class='bid-approval']
+${REJECT_BUTTON}       //button[@class='bid-reject']
+${APPROVE_VAL}         //button[@id='btn-ok']
+${REJECT_VAL}          //button[@id='btn-approval']
+${VAL_BUTTON}          //button[@class='swal2-confirm btn btn-success']
 
 ${REMARKS}             //textarea[@id='approval-remarks']
 
+${REMARKS_APPROVE}    OK
+${REMARKS_REJECT}     Salah
 
 ${BROWSER}      Chrome
 
@@ -53,10 +55,11 @@ Approve Bidding by Dep. Head Purchasing
     Click Element    ${REVIEW_BUTTON}
     Wait Until Element Is Visible    ${APPROVE_BUTTON}
     Click Element    ${APPROVE_BUTTON}
-    Input Text       ${REMARKS}    OK
+    Input Text       ${REMARKS}    ${REMARKS_APPROVE}
     Click Element    ${APPROVE_VAL}
     Click Element    ${VAL_BUTTON}
 
+    Wait Until Page Contains    Approved    timeout=30s
     Close Browser
 
 # Approval Bidding by Div. Head Purchasing
