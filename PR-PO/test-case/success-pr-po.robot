@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    DateTime  
 
 
 *** Variables ***
@@ -9,24 +10,30 @@ ${login_url}    http://devportal.mmproperty.com/login
 ${BROWSER}      chrome
 
 ${purchase_requisition_url}    http://devportal.mmproperty.com/purchaserequisition
+${purchas_order_url}    http://devportal.mmproperty.com/purchaseorder
 
 # ! requester user
 ${pr_requester_email}    daniel.fernando
-${pr_request_pass}    superFor
 ${approval_pr_user}    arief.wibowo
+${purchasing}    akira.majori
+${purchasing_manager}    ricca.sumarni
+${purchasing_head}    totok.suprapto
+${budget_control}    carlina.prasetya
+${general_pass}    superFor
 
 # ! Purchase Requisition Entry Form Value
 ${department}    IT
 ${location}    intirub
 ${attachment_path}    D:/Intern/MMP/work/robotframework/testing-system/PR-PO/source/contoh.pdf
-${desc}    test input description
-${item}    laptop hp probook
-${order_qty}    2
-${remark}    ini test remark
+${item}    Mouse Logitech MX Anywhere 2S
+${order_qty}    1
 
-# Entry Approval
+# !Entry Approval
 ${item_approve}    1
-${REMARKS_INPUT}       ok
+${REMARKS_INPUT}    OK
+
+# ! Edit Draft PO
+${available_value}    1
 
 # ! config 
 ${timeout}    30s
@@ -41,7 +48,7 @@ Membuat Purchase Requisition
     Set Window Size    1920    1080
     Wait Until Element Is Visible    //div[@class='container']
     Input Text    //input[@id='email']    ${pr_requester_email}
-    Input Text    //input[@id='password']    ${pr_request_pass}
+    Input Text    //input[@id='password']    ${general_pass}
     Click Button    //button[@class='btn btn-primary btn-submit' and @type='submit']
 
 # ====== end login proccess ======
@@ -113,9 +120,9 @@ Membuat Purchase Requisition
     # supporting document
     Choose File    //input[@name='pr_attachment[]']    ${attachment_path}
 
-
+    ${desc_and_remark}    Get Current Date    local    result_format=timestamp
     # description
-    Input Text    //textarea[@name='remark']    ${desc}
+    Input Text    //textarea[@name='remark']    ${desc_and_remark}
 
 
     # Choose Item
@@ -129,7 +136,8 @@ Membuat Purchase Requisition
 
     # remark
     Wait Until Element Is Visible    //textarea[@name='pr_remark[]']    ${timeout}
-    Input Text    //textarea[@name='pr_remark[]']    ${remark}
+
+    Input Text    //textarea[@name='pr_remark[]']    ${desc_and_remark}
     Click Element    //input[@name='pr_order_qty[]']
 
 Save Purchase Requisition Entry
@@ -139,7 +147,7 @@ Save Purchase Requisition Entry
 
 Posting Purchase Requisition Entry With Save
     # ! posting pr
-    Wait Until Element Is Visible    //a[@class='edit btn btn-danger btn-sm']
+    Wait Until Element Is Visible    //a[@class='edit btn btn-danger btn-sm']    ${timeout}
     Click Element    //a[@class='edit btn btn-danger btn-sm']
     Scroll Element Into View    //button[@class='btn btn-primary btn-sm']
     Click Button    //button[@class='btn btn-primary btn-sm' and @type='submit']
@@ -160,7 +168,7 @@ Approval Purchase Requisition
     Open Browser      ${LOGIN_URL}         ${BROWSER}
     Set Window Size    1920    1080
     Input Text        //input[@id='email']        ${approval_pr_user}
-    Input Password    //input[@id='password']     ${pr_request_pass}
+    Input Password    //input[@id='password']     ${general_pass}
     Click Button      //button[@class='btn btn-primary btn-submit' and @type='submit']
     Page Should Contain    MMP Portal
 
@@ -189,3 +197,239 @@ Approval Purchase Requisition
     Wait Until Page Contains    Success   
     Location Should Be    http://devportal.mmproperty.com/purchaserequisition
     Close Browser
+
+Receive Purchase Requisiton
+    [Documentation]        This test case is used to receive purchase requisition by Akira Majori
+    Set Selenium Speed    0.5s
+    Open Browser      ${LOGIN_URL}         ${browser}
+    Set Window Size    1920    1080
+    Input Text        //input[@id='email']        ${purchasing}
+    Input Password    //input[@id='password']    ${general_pass}
+    Click Button      //button[@class='btn btn-primary btn-submit' and @type='submit']
+    Page Should Contain    MMP Portal
+
+    Go To    ${purchas_order_url}
+    Reload Page
+    Sleep    5s
+    Reload Page
+
+    Page Should Contain    Purchasement List
+
+    Wait Until Element Is Visible    //a[@class="edit btn btn-warning btn-sm"]    ${timeout}
+    Click Element    //a[@class="edit btn btn-warning btn-sm"]
+    
+    Scroll Element Into View    //button[@id="btnConfirmPR"]
+    Click Button    //button[@id="btnConfirmPR"]
+    Click Button    //button[@class="swal2-confirm swal2-styled"]
+
+
+Send RFQ - Shopping List
+    Set Selenium Speed    0.5s
+    # Open Browser      ${LOGIN_URL}         ${browser}
+    # Input Text        //input[@id='email']        ${purchasing}
+    # Input Password    //input[@id='password']    ${general_pass}
+
+    # Go To    ${purchase_requisition_url}
+
+    # Wait Until Element Is Visible    //a[@class='edit btn btn-primary btn-sm']
+    # Click Element    //a[@class='edit btn btn-primary btn-sm']
+
+    # Checklist item
+    Wait Until Page Contains    Item Selection    ${timeout}
+    Click Element    //input[@class='form-check check-item-type' and @type='checkbox']
+    
+    # Process
+    Click Button    //button[@id='btnProcessItem']
+
+    
+    Click Element    //a[@href='#tab-rfq']
+
+    # Send RFQ'
+    Wait Until Element Is Visible    //form[@id='request-for-quotation']
+    Scroll Element Into View    //input[@style='width: 100%']
+    Click Element    //input[@style='width: 100%']
+
+    Wait Until Element Is Visible    //div[@class='swal2-popup swal2-modal swal2-show']
+    Click Button    //button[@class='swal2-confirm swal2-styled']
+
+
+Edit Draft Purchase Order
+    Set Selenium Speed    0.5s
+    Wait Until Element Is Visible        //a[@href='#tab-supplier-contract']    ${timeout}
+    Click Element    //a[@href='#tab-supplier-contract']
+
+    Click Button    //button[@class='btn btn-warning btnEditDraftPO']
+
+    # Edit Qty
+    Input Text    //input[@name='alloc_qty[]']    ${available_value}
+
+    Click Button    //button[@id='btnSaveEditDraftPO']
+
+Generate Purchase Order
+    Set Selenium Speed    0.5s
+    Wait Until Element Is Visible        //a[@href='#tab-supplier-contract']    ${timeout}
+    Click Element    //a[@href='#tab-supplier-contract']
+
+    Scroll Element Into View    //button[@class='btn btn-secondary btnSubmitDraftPO']
+    Click Button    //button[@class='btn btn-secondary btnSubmitDraftPO']
+    Wait Until Element Is Visible    //div[@class='swal2-popup swal2-modal swal2-show']    ${timeout}
+
+    Click Button    //button[@class='swal2-confirm swal2-styled']
+    Close Browser
+
+Purchase Order Approval By Mgr Purchasing
+    Set Selenium Speed    0.5s
+    Open Browser      ${LOGIN_URL}         ${browser}
+    Set Window Size    1920    1080
+    Input Text        //input[@id='email']        ${purchasing_manager}
+    Input Password    //input[@id='password']    ${general_pass}
+    Click Button      //button[@class='btn btn-primary btn-submit' and @type='submit']
+    Page Should Contain    MMP Portal
+
+    Go To    ${purchas_order_url}
+    
+    Wait Until Element Is Visible    //a[@href='#tab4']
+    Click Element    //a[@href='#tab4']
+    
+    Wait Until Element Is Visible    //a[contains(@class, 'edit btn btn-primary btn-sm')][1]    ${timeout}
+    Click Element    ///a[contains(@class, 'edit btn btn-primary btn-sm')][1]
+
+    Scroll Element Into View    //a[@class='btn btn-success']
+    Click Element    //a[@class='btn btn-success']
+
+    Scroll Element Into View    //button[@class='bid-approval']
+    Click Button    //button[@class='bid-approval']
+
+    Wait Until Element Is Visible    //textarea[@id='approval-remarks']
+    Input Text    //textarea[@id='approval-remarks']    ${REMARKS_INPUT}
+
+    Wait Until Element Is Visible    //button[@class='btn btn-primary']
+    Click Button    //button[@class='btn btn-primary']
+
+    Wait Until Element Is Visible    //button[@class='swal2-confirm btn btn-success']
+    Click Button    //button[@class='swal2-confirm btn btn-success']
+
+    Wait Until Element Is Visible    //button[@class='swal2-confirm swal2-styled']
+    Click Button    //button[@class='swal2-confirm swal2-styled']
+
+    Page Should Contain    Approved
+
+    Close Browser
+
+
+Purchase Order Approval By Head Purchasing
+    Set Selenium Speed    0.5s
+    Open Browser      ${LOGIN_URL}         ${browser}
+    Set Window Size    1920    1080
+    Input Text        //input[@id='email']        ${purchasing_head}
+    Input Password    //input[@id='password']    ${general_pass}
+    Click Button      //button[@class='btn btn-primary btn-submit' and @type='submit']
+    Page Should Contain    MMP Portal
+
+    Go To    ${purchas_order_url}
+    
+    Wait Until Element Is Visible    //a[@href='#tab4']
+    Click Element    //a[@href='#tab4']
+    
+    Wait Until Element Is Visible    //a[@class='edit btn btn-primary btn-sm']    ${timeout}
+    Click Element    //a[@class='edit btn btn-primary btn-sm']
+
+    Scroll Element Into View    //a[@class='btn btn-success']
+    Click Element    //a[@class='btn btn-success']
+
+    Scroll Element Into View    //button[@class='bid-approval']
+    Click Button    //button[@class='bid-approval']
+
+    Wait Until Element Is Visible    //textarea[@id='approval-remarks']
+    Input Text    //textarea[@id='approval-remarks']    ${REMARKS_INPUT}
+
+    Wait Until Element Is Visible    //button[@class='btn btn-primary']
+    Click Button    //button[@class='btn btn-primary']
+
+    Wait Until Element Is Visible    //button[@class='swal2-confirm btn btn-success']
+    Click Button    //button[@class='swal2-confirm btn btn-success']
+
+    Wait Until Element Is Visible    //button[@class='swal2-confirm swal2-styled']
+    Click Button    //button[@class='swal2-confirm swal2-styled']
+
+    Page Should Contain    Approved
+
+    Close Browser
+
+
+Purchase Order Approval By Budget
+    Set Selenium Speed    0.5s
+    Open Browser      ${LOGIN_URL}         ${browser}
+    Set Window Size    1920    1080
+    Input Text        //input[@id='email']        ${budget_control}
+    Input Password    //input[@id='password']    ${general_pass}
+    Click Button      //button[@class='btn btn-primary btn-submit' and @type='submit']
+    Page Should Contain    MMP Portal
+
+    Go To    ${purchas_order_url}
+    
+    Wait Until Element Is Visible    //a[@href='#tab4']
+    Click Element    //a[@href='#tab4']
+    
+    Wait Until Element Is Visible    //a[@class='edit btn btn-primary btn-sm']    ${timeout}
+    Click Element    //a[@class='edit btn btn-primary btn-sm']
+
+    Scroll Element Into View    //a[@class='btn btn-success']
+    Click Element    //a[@class='btn btn-success']
+
+    Scroll Element Into View    //button[@class='bid-approval']
+    Click Button    //button[@class='bid-approval']
+
+    Wait Until Element Is Visible    //textarea[@id='approval-remarks']
+    Input Text    //textarea[@id='approval-remarks']    ${REMARKS_INPUT}
+
+    Wait Until Element Is Visible    //button[@class='btn btn-primary']
+    Click Button    //button[@class='btn btn-primary']
+
+    Wait Until Element Is Visible    //button[@class='swal2-confirm btn btn-success']
+    Click Button    //button[@class='swal2-confirm btn btn-success']
+
+    Wait Until Element Is Visible    //button[@class='swal2-confirm swal2-styled']
+    Click Button    //button[@class='swal2-confirm swal2-styled']
+
+    Page Should Contain    Approved
+
+    Close Browser
+
+# Posting Purchase Order 
+#     Set Selenium Speed    0.5s
+#     Open Browser      ${LOGIN_URL}         ${browser}
+#     Set Window Size    1920    1080
+#     Input Text        //input[@id='email']        ${purchasing}
+#     Input Password    //input[@id='password']    ${general_pass}
+#     Click Button      //button[@class='btn btn-primary btn-submit' and @type='submit']
+#     Page Should Contain    MMP Portal
+
+#     Go To    ${purchas_order_url}
+
+#     Wait Until Element Is Visible    //a[@href='#tab1']    ${timeout}
+#     Click Element    //a[@href='#tab1']
+
+#     Wait Until Element Is Visible    //a[@class='edit btn btn-warning btn-sm']
+#     Click Element    //a[@class='edit btn btn-warning btn-sm']
+
+#     Scroll Element Into View   //a[@href='#tab-po']
+#     Click Element    //a[@href='#tab-po']
+
+#     Scroll Element Into View    //a[@href='#tab-rgood']
+#     Click Element    //a[@href='#tab-rgood']
+
+#     Scroll Element Into View    //input[@name='checkbox_post[]']
+#     Click Element    //input[@name='checkbox_post[]']
+
+#     Scroll Element Into View    //input[@name='expected_delivery[]']
+#     ${current_date}    Get Current Date    result_format=%Y-%m-%d
+#     ${expected_date}   Add Time To Date    ${current_date}    5d    result_format=%Y%m%d
+
+#     Input Text    //input[@name='expected_delivery[]']    ${expected_date}
+
+#     Scroll Element Into View    //button[@class='btn btn-primary pull-right']
+#     Click Button    //button[@class='btn btn-primary pull-right']
+
+#     Wait Until Element Is Visible    //button[@class='swal2-confirm swal2-styled']
+#     Click Button    //button[@class='swal2-confirm swal2-styled']
