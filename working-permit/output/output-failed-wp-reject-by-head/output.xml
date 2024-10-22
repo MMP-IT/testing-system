@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.10.6 on win32)" generated="2024-09-17T14:08:09.538476" rpa="false" schemaversion="5">
+<suite id="s1" name="Failed-WP-Reject-By-Head" source="D:\Intern\MMP\robotframework\working-permit\test-case\Failed-WP-Reject-By-Head.robot">
+<test id="s1-t1" name="Create Working Permit By Customer Service" line="93">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:09.748111" level="INFO">Opening browser 'Chrome' to base url 'http://devportal.mmproperty.com/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:08:09.748111" elapsed="9.161022"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_FORM}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:08:18.909133" elapsed="0.031065"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:18.940198" level="INFO">Typing text 'muhammad.zakki@mmproperty.com' into text field '//input[@id='email']'.</msg>
+<arg>${EMAIL_FIELD}</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:18.940198" elapsed="0.159147"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:19.099345" level="INFO">Typing password into text field '//input[@id='password']'.</msg>
+<msg time="2024-09-17T14:08:19.121808" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:19.099345" elapsed="0.071325"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:19.170670" level="INFO">Clicking button '//button[@class='btn btn-primary btn-submit' and @type='submit']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:19.170670" elapsed="11.001183"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:30.194508" level="INFO">Current page contains text 'MMP Portal'.</msg>
+<arg>MMP Portal</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-09-17T14:08:30.171853" elapsed="0.022655"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:30.194508" level="INFO">Opening url 'http://devportal.mmproperty.com/working-permit'</msg>
+<arg>${WP_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:08:30.194508" elapsed="2.233909"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:32.439453" level="INFO">Current page contains text 'Create'.</msg>
+<arg>Create</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-09-17T14:08:32.428417" elapsed="0.011036"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:32.444545" level="INFO">Clicking link '//a[@href='http://devportal.mmproperty.com/working-permit/create']'.</msg>
+<arg>${CREATE_WP_BUTTON}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:32.444545" elapsed="1.252824"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:33.698390" level="INFO">Clicking element '//span[@class='select2-selection__rendered' and @id='select2-entity-container']'.</msg>
+<arg>${ENTITY_SEARCH_FORM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:33.697369" elapsed="0.041577"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:33.744474" level="INFO">Typing text 'ILO' into text field '//input[@class='select2-search__field' and @role='textbox']'.</msg>
+<arg>${ENTITY_SEARCH_FIELD}</arg>
+<arg>${SEARCH_TEXT}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:33.738946" elapsed="0.075704"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:33.814650" level="INFO">Clicking element '//li[@class='select2-results__option select2-results__option--highlighted' and @role='treeitem']'.</msg>
+<arg>${ENTITY_SELECTED_ITEM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:33.814650" elapsed="0.040866"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:33.855516" level="INFO">Typing text 'Tenant Example' into text field '//input[@id='tenant_name']'.</msg>
+<arg>${TENANT_NAME_FIELD}</arg>
+<arg>${TENANT_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:33.855516" elapsed="0.108442"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PROJECT_FIELD_SPAN}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:08:33.963958" elapsed="0.018784"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:33.982742" level="INFO">Clicking element '//span[@id='select2-project_no-container']'.</msg>
+<arg>${PROJECT_FIELD_SPAN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:33.982742" elapsed="0.044685"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PROJECT_FIELD_SPAN}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:08:34.027427" elapsed="0.016006"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:34.043433" level="INFO">Typing text 'Intirub' into text field '//input[@class='select2-search__field']'.</msg>
+<arg>${PROJECT_SELECTOR}</arg>
+<arg>${PROJECT}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:34.043433" elapsed="0.068740"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PROJECT_SELECTED}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:08:34.112173" elapsed="0.436870"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:34.549043" level="INFO">Clicking element '//li[@class='select2-results__option select2-results__option--highlighted']'.</msg>
+<arg>${PROJECT_SELECTED}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:34.549043" elapsed="0.039428"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:34.589130" level="INFO">Typing text 'rcwjys@gmail.com' into text field '//input[@id='tenant_email']'.</msg>
+<arg>${TENANT_EMAIL_FIELD}</arg>
+<arg>${TENANT_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:34.589130" elapsed="0.108111"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:34.697241" level="INFO">Typing text 'PT Example' into text field '//input[@id='company']'.</msg>
+<arg>${COMPANY_FIELD}</arg>
+<arg>${COMPANY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:34.697241" elapsed="0.094452"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:34.791963" level="INFO">Typing text 'Johndoe' into text field '//input[@id='pic']'.</msg>
+<arg>${PIC_FIELD}</arg>
+<arg>${PIC}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:34.791963" elapsed="0.083311"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:34.877291" level="INFO">Typing text '081234567891011' into text field '//input[@id='phone']'.</msg>
+<arg>${PHONE_FIELD}</arg>
+<arg>${PHONE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:34.875274" elapsed="0.104218"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:34.979492" level="INFO">Typing text 'rcwjys@gmail.com' into text field '//input[@id='email1']'.</msg>
+<arg>${EMAIL_1_FIELD}</arg>
+<arg>${EMAIL1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:34.979492" elapsed="0.111135"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:35.090627" level="INFO">Typing text 'Maintenance' into text field '//input[@id='type_of_work']'.</msg>
+<arg>${TYPE_OF_WORK_FIELD}</arg>
+<arg>${TYPE_OF_WORK}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:35.090627" elapsed="0.107629"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:35.198256" level="INFO">Clicking element '//input[@id='start_work_days']'.</msg>
+<arg>${START_WORK_DAYS_FIELD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:35.198256" elapsed="0.054388"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:35.252644" level="INFO">Typing text '11/09/2024' into text field '//input[@id='start_work_days']'.</msg>
+<arg>${START_WORK_DAYS_FIELD}</arg>
+<arg>${START_WORK_DAYS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:35.252644" elapsed="0.090832"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:35.343476" level="INFO">Clicking element '//input[@id='end_work_days']'.</msg>
+<arg>${END_WORK_DAYS_FIELD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:35.343476" elapsed="0.045508"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:35.388984" level="INFO">Typing text '12/09/2024' into text field '//input[@id='end_work_days']'.</msg>
+<arg>${END_WORK_DAYS_FIELD}</arg>
+<arg>${END_WORK_DAYS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:35.388984" elapsed="0.090763"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:35.479747" level="INFO">Typing text 'Jakarta' into text field '//input[@id='work_location']'.</msg>
+<arg>${WORK_LOCATION_FIELD}</arg>
+<arg>${WORK_LOCATION}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:35.479747" elapsed="0.089960"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:35.569707" level="INFO">Clicking button '//button[@id='btnSubmit']'.</msg>
+<arg>${SEND_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:35.569707" elapsed="0.064815"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONFIRM_ALERT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:08:35.634522" elapsed="0.019029"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:35.653551" level="INFO">Clicking button '//button[@class='swal2-confirm swal2-styled']'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:08:35.653551" elapsed="0.053799"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DETAIL_WP_LINK}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:08:35.707350" elapsed="13.991690"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:49.708578" level="INFO">Current location is 'http://devportal.mmproperty.com/working-permit'.</msg>
+<arg>${WP_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:08:49.699040" elapsed="0.009538"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-09-17T14:08:49.708578" elapsed="2.166577"/>
+</kw>
+<doc>Test the Working Permit (WP) system by performing login, creating a permit, and updating job details. This covers multiple roles including Customer Service, Facility Maintenance, HSE, and Head Of PM.</doc>
+<status status="PASS" start="2024-09-17T14:08:09.748111" elapsed="42.127044"/>
+</test>
+<test id="s1-t2" name="Update Working Permit By Customer Service" line="140">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:08:51.878184" level="INFO">Opening browser 'Chrome' to base url 'http://devportal.mmproperty.com/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:08:51.877666" elapsed="9.180780"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_FORM}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:09:01.058446" elapsed="0.031068"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:01.089514" level="INFO">Typing text 'muhammad.zakki@mmproperty.com' into text field '//input[@id='email']'.</msg>
+<arg>${EMAIL_FIELD}</arg>
+<arg>${EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:01.089514" elapsed="0.194361"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:01.288395" level="INFO">Typing password into text field '//input[@id='password']'.</msg>
+<msg time="2024-09-17T14:09:01.323750" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:01.287382" elapsed="0.101945"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:01.389327" level="INFO">Clicking button '//button[@class='btn btn-primary btn-submit' and @type='submit']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:01.389327" elapsed="6.720452"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:08.137440" level="INFO">Current page contains text 'MMP Portal'.</msg>
+<arg>MMP Portal</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-09-17T14:09:08.109779" elapsed="0.027661"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:08.138456" level="INFO">Opening url 'http://devportal.mmproperty.com/working-permit'</msg>
+<arg>${WP_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:09:08.138456" elapsed="1.890611"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:10.045786" level="INFO">Current page contains text 'Create'.</msg>
+<arg>Create</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-09-17T14:09:10.029067" elapsed="0.016719"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DETAIL_WP_LINK}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:09:10.047295" elapsed="0.453395"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:10.508182" level="INFO">Current location is 'http://devportal.mmproperty.com/working-permit'.</msg>
+<arg>${WP_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:09:10.500690" elapsed="0.007492"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:10.508182" level="INFO">Clicking link '//a[contains(@class, 'btn btn-sm btn-success')][1]'.</msg>
+<arg>${UPLOAD_FEEDBACK_BUTTON}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:10.508182" elapsed="1.572123"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${TOTAL_MAN_POWER_FIELD}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-09-17T14:09:12.080305" elapsed="0.281312"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:12.361617" level="INFO">Typing text '3' into text field '//input[@id='total_man_power']'.</msg>
+<arg>${TOTAL_MAN_POWER_FIELD}</arg>
+<arg>${TOTAL_MAN_POWER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:12.361617" elapsed="0.065641"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${ADDRESS_FIELD}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-09-17T14:09:12.427771" elapsed="0.271809"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:12.699580" level="INFO">Typing text 'Jakarta Timur' into text field '//input[@id='address']'.</msg>
+<arg>${ADDRESS_FIELD}</arg>
+<arg>${ADDRESS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:12.699580" elapsed="0.100023"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ATTACHMENT_FEEDBACK_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:09:12.799603" elapsed="0.018056"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${ATTACHMENT_FEEDBACK_FIELD}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-09-17T14:09:12.818172" elapsed="0.280958"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:13.099130" level="INFO">Sending D:\Intern\MMP\robotframework\source\FSD-MMPBMEF001.pdf to browser.</msg>
+<arg>${ATTACHMENT_FEEDBACK_FIELD}</arg>
+<arg>${FEEDBACK_FILE}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:13.099130" elapsed="0.024952"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEND_BUTTON}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:09:13.124996" elapsed="0.016297"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${SEND_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-09-17T14:09:13.141293" elapsed="0.282168"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:13.423461" level="INFO">Clicking button '//button[@id='btnSubmit']'.</msg>
+<arg>${SEND_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:13.423461" elapsed="0.056660"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONFIRM_ALERT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:09:13.480121" elapsed="0.012885"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:13.497574" level="INFO">Clicking button '//button[@class='swal2-confirm swal2-styled']'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:13.493006" elapsed="0.064385"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DETAIL_WP_LINK}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:09:13.557391" elapsed="14.480989"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:28.049242" level="INFO">Current location is 'http://devportal.mmproperty.com/working-permit'.</msg>
+<arg>${WP_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:09:28.046318" elapsed="0.002924"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-09-17T14:09:28.049242" elapsed="2.173441"/>
+</kw>
+<doc>Updating the Job Details By Customer Service By Feedback</doc>
+<status status="PASS" start="2024-09-17T14:08:51.875155" elapsed="38.347528"/>
+</test>
+<test id="s1-t3" name="Working Permit Approval By Facility Management" line="177">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:30.222683" level="INFO">Opening browser 'Chrome' to base url 'http://devportal.mmproperty.com/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:09:30.222683" elapsed="9.192727"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_FORM}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:09:39.417431" elapsed="0.029833"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:39.448275" level="INFO">Typing text 'wisnu.hadiyanto@mmproperty.com' into text field '//input[@id='email']'.</msg>
+<arg>${EMAIL_FIELD}</arg>
+<arg>${FM_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:39.448275" elapsed="0.239045"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:39.688373" level="INFO">Typing password into text field '//input[@id='password']'.</msg>
+<msg time="2024-09-17T14:09:39.729930" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${GENERAL_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:39.687320" elapsed="0.110292"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:39.798131" level="INFO">Clicking button '//button[@class='btn btn-primary btn-submit' and @type='submit']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:39.798131" elapsed="3.702770"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:43.535090" level="INFO">Current page contains text 'MMP Portal'.</msg>
+<arg>MMP Portal</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-09-17T14:09:43.500901" elapsed="0.034189"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:43.538141" level="INFO">Opening url 'http://devportal.mmproperty.com/working-permit'</msg>
+<arg>${WP_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:09:43.537610" elapsed="3.340568"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REVIEW_LINK}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:09:46.878178" elapsed="0.237179"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:47.115357" level="INFO">Clicking link '//a[contains(@class, 'btn btn-sm btn-warning')][1]'.</msg>
+<arg>${NEWEST_REVIEW_LINK}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:47.115357" elapsed="1.290454"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${REVIEW_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-09-17T14:09:48.405811" elapsed="0.282679"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:48.688490" level="INFO">Clicking button '//button[@id='btnReview']'.</msg>
+<arg>${REVIEW_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:48.688490" elapsed="0.059751"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONFIRM_ALERT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:09:48.749037" elapsed="0.021665"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:48.770702" level="INFO">Clicking button '//button[@class='swal2-cancel swal2-styled']'.</msg>
+<arg>${APPROVE_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:09:48.770702" elapsed="0.066759"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DETAIL_WP_LINK}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:09:48.838475" elapsed="1.873119"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:50.718156" level="INFO">Current location is 'http://devportal.mmproperty.com/working-permit'.</msg>
+<arg>${WP_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:09:50.711594" elapsed="0.006562"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-09-17T14:09:50.718156" elapsed="2.169282"/>
+</kw>
+<doc>This test case simulates the approval process of a working permit by a Facility Management user. The test logs into the application, navigates to the working permit section, and performs the approval action.</doc>
+<status status="PASS" start="2024-09-17T14:09:30.222683" elapsed="22.664755"/>
+</test>
+<test id="s1-t4" name="Working Permit Approval By HSE" line="200">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:09:52.888446" level="INFO">Opening browser 'Chrome' to base url 'http://devportal.mmproperty.com/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:09:52.888446" elapsed="6.091978"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-17T14:10:01.983021" level="INFO">Slept 3 seconds.</msg>
+<arg>3 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-17T14:09:58.980424" elapsed="3.002597"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_FORM}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:10:01.983021" elapsed="0.015516"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:01.998537" level="INFO">Typing text 'rizal.widianto@mmproperty.com' into text field '//input[@id='email']'.</msg>
+<arg>${EMAIL_FIELD}</arg>
+<arg>${HSE_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:01.998537" elapsed="0.169738"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:02.168275" level="INFO">Typing password into text field '//input[@id='password']'.</msg>
+<msg time="2024-09-17T14:10:02.204158" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${GENERAL_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:02.168275" elapsed="0.101005"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:02.269280" level="INFO">Clicking button '//button[@class='btn btn-primary btn-submit' and @type='submit']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:02.269280" elapsed="2.108891"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:04.401030" level="INFO">Current page contains text 'MMP Portal'.</msg>
+<arg>MMP Portal</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-09-17T14:10:04.379150" elapsed="0.028396"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:04.407546" level="INFO">Opening url 'http://devportal.mmproperty.com/working-permit'</msg>
+<arg>${WP_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:10:04.407546" elapsed="1.800083"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REVIEW_LINK}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:10:06.208145" elapsed="0.650952"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:06.865135" level="INFO">Clicking link '//a[contains(@class, 'btn btn-sm btn-warning')][1]'.</msg>
+<arg>${NEWEST_REVIEW_LINK}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:06.865135" elapsed="1.026806"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${REVIEW_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-09-17T14:10:07.891941" elapsed="0.282768"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:08.174709" level="INFO">Clicking button '//button[@id='btnReview']'.</msg>
+<arg>${REVIEW_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:08.174709" elapsed="0.056887"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONFIRM_ALERT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:10:08.231596" elapsed="0.016823"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:08.248419" level="INFO">Clicking button '//button[@class='swal2-cancel swal2-styled']'.</msg>
+<arg>${APPROVE_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:08.248419" elapsed="0.066218"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DETAIL_WP_LINK}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:10:08.314637" elapsed="5.723878"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:14.048959" level="INFO">Current location is 'http://devportal.mmproperty.com/working-permit'.</msg>
+<arg>${WP_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:10:14.038515" elapsed="0.010444"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-09-17T14:10:14.048959" elapsed="2.150681"/>
+</kw>
+<doc>This test case simulates the approval process of a working permit by a Health, Safety, and Environment (HSE) user. The test logs into the application, navigates to the working permit section, and performs the approval action.</doc>
+<status status="PASS" start="2024-09-17T14:09:52.888446" elapsed="23.311809"/>
+</test>
+<test id="s1-t5" name="Working Permit Rejection By Head" line="224">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:16.201269" level="INFO">Opening browser 'Chrome' to base url 'http://devportal.mmproperty.com/login'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:10:16.201269" elapsed="6.070090"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_FORM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:10:22.271359" elapsed="0.041008"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:22.313878" level="INFO">Typing text 'wahyudi@mmproperty.com' into text field '//input[@id='email']'.</msg>
+<arg>${EMAIL_FIELD}</arg>
+<arg>${HEAD_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:22.313878" elapsed="0.344970"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:22.658848" level="INFO">Typing password into text field '//input[@id='password']'.</msg>
+<msg time="2024-09-17T14:10:22.693132" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${GENERAL_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:22.658848" elapsed="0.090056"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:22.748904" level="INFO">Clicking button '//button[@class='btn btn-primary btn-submit' and @type='submit']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:22.748904" elapsed="1.768561"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:24.539396" level="INFO">Current page contains text 'MMP Portal'.</msg>
+<arg>MMP Portal</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-09-17T14:10:24.518478" elapsed="0.020918"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:24.539396" level="INFO">Opening url 'http://devportal.mmproperty.com/working-permit'</msg>
+<arg>${WP_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:10:24.539396" elapsed="1.609127"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REVIEW_LINK}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:10:26.148712" elapsed="0.440445"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:26.589157" level="INFO">Clicking link '//a[contains(@class, 'btn btn-sm btn-warning')][1]'.</msg>
+<arg>${NEWEST_REVIEW_LINK}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:26.589157" elapsed="0.884239"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${REVIEW_BUTTON}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-09-17T14:10:27.473396" elapsed="0.292323"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:27.767234" level="INFO">Clicking button '//button[@id='btnReview']'.</msg>
+<arg>${REVIEW_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:27.767234" elapsed="0.061834"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONFIRM_ALERT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:10:27.829068" elapsed="0.023181"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:27.852249" level="INFO">Typing text 'reject reason' into text field '//textarea[@class='swal2-textarea']'.</msg>
+<arg>${REASON_FIELD}</arg>
+<arg>${REASON}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:27.852249" elapsed="0.100797"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:27.953046" level="INFO">Clicking button '//button[@class='swal2-confirm swal2-styled']'.</msg>
+<arg>${REJECT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-17T14:10:27.953046" elapsed="0.055283"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${DETAIL_WP_LINK}</arg>
+<arg>timeout=30 seconds</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-17T14:10:28.008329" elapsed="4.810992"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-09-17T14:10:32.828382" level="INFO">Current location is 'http://devportal.mmproperty.com/working-permit'.</msg>
+<arg>${WP_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-09-17T14:10:32.827339" elapsed="0.001043"/>
+</kw>
+<doc>This test case simulates the rejection process of a working permit by a Head user. The test logs into the application, navigates to the working permit section, and performs the rejection action.</doc>
+<status status="PASS" start="2024-09-17T14:10:16.200255" elapsed="16.628127"/>
+</test>
+<status status="PASS" start="2024-09-17T14:08:09.538476" elapsed="143.289906"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Failed-WP-Reject-By-Head">Failed-WP-Reject-By-Head</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
