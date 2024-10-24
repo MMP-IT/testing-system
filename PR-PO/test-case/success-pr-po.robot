@@ -24,8 +24,8 @@ ${general_pass}    superFor
 # ! Purchase Requisition Entry Form Value
 ${department}    IT
 ${location}    intirub
-# ${attachment_path}    D:/Intern/MMP/work/robotframework/testing-system/PR-PO/source/contoh.pdf
-${attachment_path}    D:/NIDA/MMP/testing-system/PR-PO/source/contoh.pdf
+${attachment_path}    D:/Intern/MMP/work/robotframework/testing-system/PR-PO/source/contoh.pdf
+# ${attachment_path}    D:/NIDA/MMP/testing-system/PR-PO/source/contoh.pdf
 ${item}    Mouse Logitech MX Anywhere 2S
 ${order_qty}    1
 
@@ -257,7 +257,7 @@ Send RFQ - Shopping List
     Scroll Element Into View    //input[@id='check1']
     Click Element    //input[@id='check1']
     
-    Sleep    5 seconds
+
 
     # Process
     Scroll Element Into View    //button[@id='btnProcessItem']
