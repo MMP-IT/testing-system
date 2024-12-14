@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.13.0 on win32)" generated="2024-11-25T13:18:26.529104" rpa="false" schemaversion="5">
+<suite id="s1" name="Success-FR" source="D:\NIDA\MMP\testing-system\fund-request\test-case\Success-FR.robot">
+<test id="s1-t1" name="Login" line="27">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.5 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-11-25T13:18:27.149427" elapsed="0.000324"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-25T13:18:27.150470" level="INFO">Opening browser 'CHROME' to base url 'http://devportal.mmproperty.com/login'.</msg>
+<arg>${login_url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-25T13:18:27.150180" elapsed="6.889559"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2024-11-25T13:18:34.040721" elapsed="1.309366"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-25T13:18:35.354077" level="INFO">Typing text 'rizki.maulida' into text field '//input[@id='email']'.</msg>
+<arg>//input[@id='email']</arg>
+<arg>${fr_finance}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-25T13:18:35.353118" elapsed="1.832068"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-25T13:18:37.186642" level="INFO">Typing text 'superFor' into text field '//input[@id='password']'.</msg>
+<arg>//input[@id='password']</arg>
+<arg>${general_pass}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-25T13:18:37.186081" elapsed="1.699625"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-25T13:18:38.887549" level="INFO">Clicking button '//button[@class='btn btn-primary btn-submit' and @type='submit']'.</msg>
+<arg>//button[@class='btn btn-primary btn-submit' and @type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-25T13:18:38.886979" elapsed="4.653691"/>
+</kw>
+<status status="PASS" start="2024-11-25T13:18:27.148015" elapsed="16.393282"/>
+</test>
+<test id="s1-t2" name="Merge Supporting Document" line="37">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-11-25T13:18:43.545987" level="INFO">Opening url 'http://devportal.mmproperty.com/fund-request'</msg>
+<arg>${fund_request_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-11-25T13:18:43.545501" elapsed="1.668326"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//a[@class='btn btn-sm btn-primary']</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-25T13:18:45.227759" elapsed="1.159235"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-11-25T13:18:46.388128" level="INFO">Clicking element '//a[@class='btn btn-sm btn-primary']'.</msg>
+<arg>//a[@class='btn btn-sm btn-primary']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-25T13:18:46.387714" elapsed="1.924088"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button[@class='btn btn-sm btn-primary']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-25T13:18:48.312544" elapsed="1.046266"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-25T13:18:49.360753" level="INFO">Clicking button '//button[@class='btn btn-sm btn-primary']'.</msg>
+<arg>//button[@class='btn btn-sm btn-primary']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-25T13:18:49.359777" elapsed="2.643463"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-25T13:18:52.004523" level="INFO">Clicking button '//button[@class='swal2-confirm swal2-styled']'.</msg>
+<msg time="2024-11-25T13:18:53.756874" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-11-25T13:18:53.757299" level="FAIL">Button with locator '//button[@class='swal2-confirm swal2-styled']' not found.</msg>
+<arg>//button[@class='swal2-confirm swal2-styled']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2024-11-25T13:18:52.004096" elapsed="1.873999">Button with locator '//button[@class='swal2-confirm swal2-styled']' not found.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//a[@class='btn btn-danger']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-11-25T13:18:53.878623" elapsed="0.000076"/>
+</kw>
+<status status="FAIL" start="2024-11-25T13:18:43.543938" elapsed="10.335182">Button with locator '//button[@class='swal2-confirm swal2-styled']' not found.</status>
+</test>
+<test id="s1-t3" name="Bundling Transaction" line="46">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2024-11-25T13:19:05.503611" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/b5a2a6ebbe94a7d90a5f3e3b40795f5e/screenshot</msg>
+<msg time="2024-11-25T13:19:09.572645" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002C28AA056D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/b5a2a6ebbe94a7d90a5f3e3b40795f5e/screenshot</msg>
+<msg time="2024-11-25T13:19:13.783031" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002C28A8BB890&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/b5a2a6ebbe94a7d90a5f3e3b40795f5e/screenshot</msg>
+<msg time="2024-11-25T13:19:17.873846" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=5219): Max retries exceeded with url: /session/b5a2a6ebbe94a7d90a5f3e3b40795f5e/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002C28A9AC2B0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<arg>Ready Generate</arg>
+<arg>${timeout}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2024-11-25T13:18:53.881230" elapsed="23.994346">Execution terminated by signal</status>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>//td[@class='select-checkbox sorting_1']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="NOT RUN" start="2024-11-25T13:19:17.876190" elapsed="0.000098"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//td[@class='select-checkbox sorting_1']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-11-25T13:19:17.876684" elapsed="0.000061"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>//button[@id="btnSubmit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-11-25T13:19:17.877201" elapsed="0.000052"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//button[@class='swal2-confirm swal2-styled']</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2024-11-25T13:19:17.877817" elapsed="0.000052"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>//button[@class='swal2-confirm swal2-styled']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-11-25T13:19:17.878302" elapsed="0.000048"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//button[@class='swal2-confirm swal2-styled']</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2024-11-25T13:19:17.878768" elapsed="0.000049"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>//button[@class='swal2-confirm swal2-styled']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-11-25T13:19:17.879342" elapsed="0.000093"/>
+</kw>
+<status status="FAIL" start="2024-11-25T13:18:53.880709" elapsed="23.999206">Execution terminated by signal</status>
+</test>
+<test id="s1-t4" name="Export to Excel" line="56">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2024-11-25T13:19:17.881819" elapsed="0.001114">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t5" name="Download Attachment" line="64">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2024-11-25T13:19:17.884772" elapsed="0.001033">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t6" name="Upload Supporting Document" line="72">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2024-11-25T13:19:17.887731" elapsed="0.001015">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t7" name="Submit to Kepple" line="86">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2024-11-25T13:19:17.890585" elapsed="0.000886">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t8" name="Complete Transaction" line="94">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2024-11-25T13:19:17.893029" elapsed="0.000852">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t9" name="Check History" line="107">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2024-11-25T13:19:17.898668" elapsed="0.000937">Test execution stopped due to a fatal error.</status>
+</test>
+<status status="FAIL" start="2024-11-25T13:18:26.532386" elapsed="51.369292"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="8" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="2" skip="0" info="combined" combined="NOT robot:exit">NOT robot:exit</stat>
+</tag>
+<suite>
+<stat pass="1" fail="8" skip="0" id="s1" name="Success-FR">Success-FR</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-11-25T13:19:05.503611" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/b5a2a6ebbe94a7d90a5f3e3b40795f5e/screenshot</msg>
+<msg time="2024-11-25T13:19:09.572645" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002C28AA056D0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/b5a2a6ebbe94a7d90a5f3e3b40795f5e/screenshot</msg>
+<msg time="2024-11-25T13:19:13.783031" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002C28A8BB890&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/b5a2a6ebbe94a7d90a5f3e3b40795f5e/screenshot</msg>
+<msg time="2024-11-25T13:19:17.873846" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=5219): Max retries exceeded with url: /session/b5a2a6ebbe94a7d90a5f3e3b40795f5e/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000002C28A9AC2B0&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+</errors>
+</robot>
